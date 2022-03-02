@@ -12,3 +12,6 @@ export * from './repository-models/get-user-posts/GetUserTweetsQueryResult';
 export * from './user-case-models/GetUserTweetsParams';
 export * from './user-case-models/GetUserTweetsUseCase';
 export * from './user-case-models/GetUserTweetsDTO';
+
+export * from './controller-models/Controller';
+export * from './controller-models/HTTPRequest';
