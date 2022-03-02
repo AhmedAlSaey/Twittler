@@ -1,0 +1,43 @@
+{
+	"name": "twittler",
+	"version": "1.0.0",
+	"description": "A twitter clone with simple APIs for posts and comments",
+	"main": "src/index.ts",
+	"scripts": {
+		"test": "jest",
+		"prepare": "husky install"
+	},
+	"dependencies": {
+		"@types/express": "4.17.13",
+		"@types/node": "15.6.2",
+		"dotenv": "9.0.1",
+		"express": "4.17.1",
+		"pg": "8.6.0",
+		"pg-format": "1.0.4"
+	},
+	"devDependencies": {
+		"@types/pg": "^8.6.4",
+		"@typescript-eslint/eslint-plugin": "^5.10.0",
+		"@typescript-eslint/parser": "^5.10.0",
+		"csvtojson": "^2.0.10",
+		"eslint": "^8.7.0",
+		"eslint-config-prettier": "8.3.0",
+		"eslint-plugin-prettier": "4.0.0",
+		"husky": "^7.0.4",
+		"lint-staged": "^12.3.4",
+		"nodemon": "2.0.15",
+		"prettier": "2.5.1",
+		"ts-node": "^9.1.1",
+		"typescript": "^4.5.5"
+	},
+	"author": "Ahmed AlSaey",
+	"license": "ISC",
+	"lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix"
+    ],
+    "*.{ts,tsx,json,md,graphql}": [
+      "prettier --write"
+    ]
+  }
+}
