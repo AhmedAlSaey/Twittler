@@ -23,7 +23,7 @@
 		"eslint": "^8.7.0",
 		"eslint-config-prettier": "8.3.0",
 		"eslint-plugin-prettier": "4.0.0",
-		"husky": "^7.0.4",
+		"husky": "^4.3.8",
 		"lint-staged": "^12.3.4",
 		"nodemon": "2.0.15",
 		"prettier": "2.5.1",
@@ -33,11 +33,11 @@
 	"author": "Ahmed AlSaey",
 	"license": "ISC",
 	"lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --fix"
-    ],
-    "*.{ts,tsx,json,md,graphql}": [
-      "prettier --write"
-    ]
-  }
+		"*.{ts,tsx}": [
+			"eslint --fix"
+		],
+		"*.{ts,tsx,json,md,graphql}": [
+			"prettier --write"
+		]
+	}
 }

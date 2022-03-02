@@ -1,4 +1,4 @@
-import { TweetRepository } from './tweet';
+import { UserTweetsRepository } from './UserTweetsRepository';
 import { Pool } from 'pg';
 import { Database, Formatter } from '../models';
 var pgFormat = require('pg-format');
@@ -92,6 +92,6 @@ let createFormatter: () => Formatter = () => {
 	};
 };
 
-let vehicleIdFromSlugRepository = new TweetRepository(await createDatabase(), createFormatter());
+let userTweetsRepository = new UserTweetsRepository(await createDatabase(), createFormatter());
 
-export { vehicleIdFromSlugRepository };
+export { userTweetsRepository };
