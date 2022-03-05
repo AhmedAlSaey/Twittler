@@ -1,0 +1,463 @@
+{
+	"info": {
+		"_postman_id": "52dad50d-fc33-4a7d-bd20-9886cbe45d1d",
+		"name": "Twittler",
+		"description": "This is the documentation of the API collection for the project \"Twittler\" made by Ahmed AlSaey. It is a simple twitter clone that has the capability of posting tweets, viewing them, and commenting on them.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get User Tweets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/users/:userId/tweets",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["users", ":userId", "tweets"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "The user ID of the tweets' publisher"
+						}
+					]
+				},
+				"description": "## Description\n\n> API endpoint user to get the tweets for a certain use\n\n## Response\n\n> The tweets of the user along with their nested comments, each tweet has the following properties"
+			},
+			"response": [
+				{
+					"name": "Sucess Example (200 OK)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/:userId/tweets",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "tweets"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1",
+									"description": "The user ID of the tweets' poster"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "404"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"194-PhoghZJmSy0eeEx0qsi0x06IaIk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 21:02:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Here are the list of user Tweets\",\n    \"items\": [\n        {\n            \"id\": 1,\n            \"user_id\": 1,\n            \"content\": \"just setting up my twttr\",\n            \"time\": \"2022-03-04T15:16:18.292Z\",\n            \"comments\": [\n                {\n                    \"id\": 1,\n                    \"time\": \"2022-03-04T17:25:30.074411\",\n                    \"content\": \"Welcome!\",\n                    \"replies\": [\n                        {\n                            \"id\": 2,\n                            \"time\": \"2022-03-04T17:26:03.978267\",\n                            \"content\": \"Thanks!\",\n                            \"user_id\": 2,\n                            \"tweet_id\": 1,\n                            \"parent_id\": 1\n                        }\n                    ],\n                    \"user_id\": 2,\n                    \"tweet_id\": 1,\n                    \"parent_id\": null\n                }\n            ]\n        }\n    ]\n}"
+				},
+				{
+					"name": "Failure Example (400 BAD REQUEST)",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/users/:userId/tweets",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "tweets"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "abc",
+									"description": "The user ID of the tweets' poster"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"42-dm7+6tQwe+fBRmjqWsPOg5zkVLM\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 21:03:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date"
+						}
+					],
+					"body": "{\n    \"status\": \"MISSING_PARAMETER\",\n    \"message\": \"User ID must be numeric\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Post User Tweet",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"just setting up my twttr\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/:userId/tweets",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["users", ":userId", "tweets"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "1",
+							"description": "The user ID for the tweet publisher"
+						}
+					]
+				},
+				"description": "## Description\n\n> API endpoint for posting a new tweet related to a certain user\n\n## Response\n\n> Whether or not the posting operation was a success or a failure"
+			},
+			"response": [
+				{
+					"name": "Sucess Example (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"just setting up my twttr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/:userId/tweets",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "tweets"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3a-vkgBkZeYXYFUh/2BRoAbp5/IoqI\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 23:53:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Tweet posted successfully\"\n}"
+				},
+				{
+					"name": "Failure Example (400 BAD REQUEST)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"just setting up my twttr\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/:userId/tweets",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "tweets"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "abc"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "66"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"42-Vd9mw8i63Aivjer4xJtwPvxhozo\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 23:54:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"INVALID_PARAMETER\",\n    \"message\": \"User ID must be numeric\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Post Tweet Comment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\n    \"tweetId\": 1,\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\n    \"parentId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/users/:userId/comments",
+					"host": ["localhost"],
+					"port": "3000",
+					"path": ["users", ":userId", "comments"],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "2",
+							"description": "The user ID for the comment publisher"
+						}
+					]
+				},
+				"description": "## Description\n\n> API endpoint that allows the user to post a comment to a certain tweet, it can be a reply to another comment\n\n## Response\n\n> The result of the comment posting operation"
+			},
+			"response": [
+				{
+					"name": "Success Example (200 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"tweetId\": 1,\n    \"content\": \"Thanks!\",\n    \"parentId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/:userId/comments",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "comments"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3c-liSbFzlmIR62/zWojbkOqqZCuYk\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 23:55:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"SUCCESS\",\n    \"message\": \"Comment posted successfully\"\n}"
+				},
+				{
+					"name": "Failure Example (400 OK)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n{\n    \"tweetId\": 1,\n    \"content\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\",\n    \"parentId\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/users/:userId/comments",
+							"host": ["localhost"],
+							"port": "3000",
+							"path": ["users", ":userId", "comments"],
+							"variable": [
+								{
+									"key": "userId",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "65"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"41-WZ6PPJifQcqGTbDG8pgMBoRQ72w\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 04 Mar 2022 23:58:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"INVALID_PARAMETER\",\n    \"message\": \"Invalid comment length\"\n}"
+				}
+			]
+		}
+	]
+}
