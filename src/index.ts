@@ -52,8 +52,10 @@ app.post('/users/:userId/tweets', makeExpressCallback(postUserTweetsController))
 app.post('/users/:userId/comments', makeExpressCallback(postTweetCommentController));
 
 // Start the server
-app.listen(3000, () => {
-	console.log('Server is listening on port 3000');
+let port = Number(process.env.PORT);
+if (!port) throw Error('Please check that the environment variable PORT has a valid port number');
+app.listen(port, () => {
+	console.log(`Server is listening on port ${port}`);
 });
 
 export default app;

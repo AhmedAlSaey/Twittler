@@ -30,8 +30,8 @@ I have tried to write this repository as cleanly as possible, so I thought you w
 npm install
 ```
 
-- Rename the `.env.example` file to `.env` and add your database credentials, if you wish to use the default database configuration for this repository, move to the next step.
-- Initialize database docker image, this will launch a local Postgres docker image that works with the variables that are in the .env example file, you can use your own custom credentials though.
+- Rename the `.env.example` file to `.env` and add your database credentials. I recommend leaving the env variables as they are if you just want to test the repository.
+- Initialize database docker image, this will launch a local Postgres docker image that works with the variables that are in your `.env` file, whether you customized them or not. If you have your own database instance running, and have configured the `.env` file accordingly, skip this step.
 
 ```bash
 npm run start-db
