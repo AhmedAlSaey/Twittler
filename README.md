@@ -51,6 +51,7 @@ To start the server locally, use this command:
 npm start
 ```
 
+After that, the server withh start on localhost port 300, where you can send HTTP requests to. See the API documentation below for more on that.
 Don't worry about setting up the database schema, the code itself initializes it on the first run.
 
 ## Understanding the code
