@@ -1,8 +1,8 @@
 export type Comment = {
 	id: number;
-	tweetId: number;
-	userId: number;
-	parentId: number;
+	tweet_id: number;
+	user_id: number;
+	parent_id: number | null;
 	content: string;
 	time: Date;
 };

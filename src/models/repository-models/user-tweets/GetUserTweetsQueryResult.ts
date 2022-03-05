@@ -2,8 +2,9 @@ import { Tweet } from '../Tweet';
 import { Comment } from '../Comment';
 
 export type GetUserTweetsQueryResult = Tweet & {
-	comments: Comment &
-		{
-			replies: Comment[];
-		}[];
+	comments:
+		| (Comment & {
+				replies: Comment[] | null;
+		  })[]
+		| null;
 };
