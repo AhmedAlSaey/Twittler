@@ -11,9 +11,7 @@ module.exports = {
 	rules: {
 		'prettier/prettier': 'warn',
 	},
-	ignorePatterns: [
-		".eslintrc.js"
-	],
+	ignorePatterns: ['.eslintrc.js', 'jest.config.js'],
 	env: {
 		node: true,
 	},
