@@ -1,6 +1,11 @@
-import { makeGetUserTweetsUseCase } from './GetUserTweetsUseCase';
-import { userTweetsRepository } from '../repositories-psql';
+import { makeGetUserTweetsUseCase } from './makeGetUserTweetsUseCase';
+import { makePostUserTweetsUseCase } from './makePostUserTweetsUseCase';
+import { makePostTweetCommentUseCase } from './makePostTweetCommentUseCase';
+import { tweetCommentRepository, userTweetsRepository } from '../repositories-psql';
 
-let getVehicleIDFromSlugService = makeGetUserTweetsUseCase(userTweetsRepository);
+// Initializing usercases by injecting their dependencies
+let getUserTweetsUseCase = makeGetUserTweetsUseCase(userTweetsRepository);
+let postUserTweetsUseCase = makePostUserTweetsUseCase(userTweetsRepository);
+let postTweetCommentUseCase = makePostTweetCommentUseCase(tweetCommentRepository);
 
-export { getVehicleIDFromSlugService };
+export { getUserTweetsUseCase, postUserTweetsUseCase, postTweetCommentUseCase };
